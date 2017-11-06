@@ -1,0 +1,35 @@
+import RickYMorty.*
+
+describe "materiales" {
+	
+	const lata = new Lata(50)
+	const cable = new Cable(5,4) 
+	const fleeb = new Fleeb(45)
+			
+	test "energia conducida de una lata" {
+
+		assert.equals(5,lata.electricidadConducida())
+
+	}
+	
+	test"morty no puede recolectar material "{
+		
+		morty.aumentarEnergia(25)
+		assert.throwsExceptionWithMessage("No posee energia suficiente para recoger el material", {morty.recolectar(lata)})
+	}
+	
+	test"morty recolecta una lata "{
+		
+		morty.aumentarEnergia(150)		
+		morty.recolectar(lata)
+		assert.that(morty.elementos().contains(lata))
+	}
+	
+	/*test"morty recolecta un material radioactivo "{
+		
+		morty.aumentarEnergia(100)
+		morty.recolectar(fleeb)
+	}
+	*/
+}
+
